@@ -1,0 +1,146 @@
+<html ng-app="myApp">
+<head>
+<title>Hello World</title>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"> 
+<!-- <script type="text/javascript" src="angular.min.js"> -->
+</script> 
+<script src="scripts/jquery.js"></script>
+ <!--<link href="styles/main.css" rel="stylesheet"> -->
+<link href="scripts/jqwidgets-ver3.9.1/jqwidgets/styles/jqx.base.css" rel="stylesheet">
+<link href="scripts/jqwidgets-ver3.9.1/jqwidgets/styles/jqx.bootstrap.css" rel="stylesheet">
+<link href="scripts/jqwidgets-ver3.9.1/jqwidgets/styles/seceon-dark-two.css" rel="stylesheet">
+<link href="scripts/jqwidgets-ver3.9.1/jqwidgets/styles/seceon-gray-light-theme.css" rel="stylesheet">
+<!--All JQ Plug-ins and Widgets-->
+<script src="scripts/jqwidgets-ver3.9.1/jqwidgets/jqx-all.js"></script>
+
+<link  rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script type="text/javascript" src="app2.js"></script>
+
+
+ 
+</head>
+<body>
+<div ng-controller="myCtrl">
+	<div id = "middle-panel" class="col-xs-6 col-md-12"  style="padding-top: 12px" >
+        
+        <jqx-tabs jqx-settings="tabsSettings">
+			<ul>
+                <li style="margin-left: 30px;">
+                    <div style="height: 20px; margin-top: 5px;">
+                    
+                        <div style="margin-left: 4px; vertical-align: middle; text-align: center; float: left;">
+                            RX Specific Alerts</div>
+                    </div>
+                </li>
+                <li>
+                    <div style="height: 20px; margin-top: 5px;">
+                        
+                        <div style="margin-left: 4px; vertical-align: middle; text-align: center; float: left;">
+                            Procedure Alerts</div>
+                    </div>
+                </li>
+				<li>
+                    <div style="height: 20px; margin-top: 5px;">
+                        
+                        <div style="margin-left: 4px; vertical-align: middle; text-align: center; float: left;">
+                            DX Specific Alerts</div>
+                    </div>
+                </li>
+            </ul>
+		
+		<div style="overflow: hidden;">
+			<table width="100%" border="0">
+				<tr>
+					<td width="40%">
+						<jqx-input id="filter" ng-model="filter" style="padding-left: 4px;"></jqx-input>
+					</td>
+					<td width="10%">
+						<button id="add-button" ng-click="addUser()" jqx-button jqx-settings="jqxButtonSettings">Add</button> 
+					</td>
+					<td width="10%">
+						<button id="remove-button" ng-click="deleteUser()" jqx-button jqx-settings="jqxButtonSettings">Remove</button> 
+					</td>
+					<td width="20%">
+						
+					</td>
+				</tr>
+			</table>
+			<div id="data-entry-form" class="col-md-12">
+                <jqx-window id="userProvisioningWindow" jqx-settings="jqxProvisioningWindowSettings">
+                    <div style="font-weight: bold;">Add</div>
+                    <div>
+                        
+
+                        <form id="users-form" jqx-validator jqx-settings="validatorSettings">
+                            <table class="table table-bordered table-condensed" width="100%">
+                                <tr>
+                                    <td colspan="2">
+                                        Add a user record
+                                    </td>
+                                </tr>
+								<tr>
+                                    <td width="15%">
+                                        Id
+                                    </td>
+                                    <td width="85%">
+                                        <jqx-input id="userId" type="text" ng-model="userId"
+                                                   jqx-settings="inputSettings"></jqx-input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="15%">
+                                        Name
+                                    </td>
+                                    <td width="85%">
+                                        <jqx-input id="username" type="text" ng-model="username"
+                                                   jqx-settings="inputSettings"></jqx-input>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="15%">
+                                        Age
+                                    </td>
+                                    <td width="85%">
+                                        <jqx-input id="userage" type="text" ng-model="userage"
+                                                   jqx-settings="inputSettings"></jqx-input>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                            <table width="100%">
+                                <tr>
+                                    <td width="48%" align="right">
+                                        <button id="user-cancel-button" jqx-button jqx-settings="jqxButtonSettings"
+                                                ng-click="cancelUser()">Cancel
+                                        </button>
+                                    </td>
+                                    <td width="4%">
+                                        &nbsp;
+                                    </td>
+                                    <td width="48%" align="left">
+                                        <button id="user-save-button" jqx-button jqx-settings="jqxButtonSettings"
+                                                ng-click="saveUser()">Save
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </jqx-window>
+          
+            </div>
+			<div style="height: 16px;"></div>
+			<jqx-grid id="usersGrid" jqx-settings="settings"></jqx-grid>
+		
+		</div>
+		<div style="overflow: hidden;"></div>
+		<div style="overflow: hidden;"></div>
+		
+		
+		</jqx-tabs>
+    </div>
+</div>
+</body>
+</html>
